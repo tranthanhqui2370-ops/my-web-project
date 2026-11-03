@@ -2,17 +2,17 @@
 chcp 65001 >nul
 title CHIA SẺ WEB RA TOÀN THẾ GIỚI (MẠNG KHÁC, 4G/5G)
 echo ======================================================================
-echo       TẠO ĐƯỜNG DẪN CÔNG KHAI INTERNET CHO MÁY KHÁC / MẠNG KHÁC
+echo    TẠO ĐƯỜNG DẪN CLOUDFLARE INTERNET CHO MÁY KHÁC / MẠNG KHÁC (4G/5G)
 echo ======================================================================
 echo.
-echo Đang tạo đường hầm kết nối Internet công khai cho cổng 5500...
+echo Đang kết nối mạng toàn cầu qua Cloudflare Tunnel...
 echo.
-echo Khi đường link xuất hiện bên dưới (dạng https://...loca.lt):
-echo 👉 Bạn có thể copy link đó gửi cho bất kỳ ai ở mạng khác, dùng 4G/5G
-echo    đều mở được web của bạn!
+echo Khi đường link xuất hiện bên dưới (dạng https://...trycloudflare.com):
+echo 👉 Bạn chỉ cần COPY đường link đó gửi cho bạn bè/thầy cô ở bất kỳ đâu
+echo    (dùng 4G, 5G hay Wi-Fi khác) đều mở được trang web của bạn ngay!
 echo.
-echo Lưu ý: Giữ cửa sổ này mở để link tiếp tục hoạt động.
+echo [LƯU Ý] Giữ cửa sổ này mở để link tiếp tục hoạt động.
 echo ======================================================================
 echo.
-npx --yes localtunnel --port 5500
+"%~dp0cloudflared.exe" tunnel --url http://localhost:5500
 pause
