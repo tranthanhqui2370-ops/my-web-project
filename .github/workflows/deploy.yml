@@ -25,6 +25,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Remove heavy binary cache from static deployment
+        run: |
+          rm -f phat_tai_bank/ai_backend/model_cache.joblib || true
+          rm -rf phat_tai_bank/ai_backend/__pycache__ || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
