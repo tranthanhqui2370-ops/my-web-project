@@ -1,0 +1,32 @@
+[
+  {
+    "username": "admin",
+    "password": "password123",
+    "fullname": "Quản Trị Viên",
+    "phone": "0908889999",
+    "accountNumber": "PTB8889998888",
+    "balance": 150000000,
+    "address": "268 Lý Thường Kiệt, Q.10, TP.HCM",
+    "createdAt": "2026-10-20T08:00:00.000Z"
+  },
+  {
+    "username": "khachhang",
+    "password": "password123",
+    "fullname": "Nguyễn Văn Phát Tài",
+    "phone": "0912345678",
+    "accountNumber": "PTB9998887777",
+    "balance": 25500000,
+    "address": "123 Đường Lê Lợi, Q.1, TP.HCM",
+    "createdAt": "2026-10-20T09:30:00.000Z"
+  },
+  {
+    "username": "nguyenvana",
+    "password": "password123",
+    "fullname": "Nguyễn Văn A",
+    "phone": "0988776655",
+    "accountNumber": "PTB1234567890",
+    "balance": 50000,
+    "address": "123 Hai Bà Trưng, Q.1, TP.HCM",
+    "createdAt": "2026-10-21T12:00:00.000Z"
+  }
+]

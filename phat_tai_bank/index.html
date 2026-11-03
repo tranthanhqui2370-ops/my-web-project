@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHÁT TÀI BANK - Ngân Hàng Số & Trợ Lý AI Chatbot</title>
+  <meta name="description" content="Hệ thống Ngân hàng số PHÁT TÀI BANK tích hợp AI Chatbot hỗ trợ khách hàng, nhận diện 77 ý định tài chính từ tập dữ liệu BANKING77.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Compiled SCSS to CSS -->
+  <link rel="stylesheet" href="css/style.css?v=2.1">
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <!-- Menu Button & Top-Left Dropdown Panel -->
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <!-- Compact Menu Panel ("Bản nhỏ góc trái") -->
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="if (window.openChatbot) { window.openChatbot(); } else { document.getElementById('chatbot-toggle')?.click(); } this.closest('.menu-panel-dropdown')?.classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="logo" id="logo-nav">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+      
+      <div class="nav-actions">
+        <!-- Auth Actions Container -->
+        <div id="auth-header-container" class="auth-header-container"></div>
+
+        <!-- Theme Toggle Button -->
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        
+        <!-- Cart Toggle Button -->
+        <button class="action-btn" id="cart-toggle" title="Giỏ đăng ký dịch vụ" aria-label="Open Service Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h1>
+            <span>Hệ Thống Ngân Hàng Số Thế Hệ Mới</span>
+            Quản Lý Tài Chính Đỉnh Cao<br>Cùng Trợ Lý AI <em class="heading-fancy" style="color: #007bff;">Phát Tài Bot</em>
+          </h1>
+          <p>PHÁT TÀI BANK cung cấp các giải pháp tài chính toàn diện: thẻ thanh toán quốc tế Visa/Mastercard, mở sổ tiết kiệm lãi suất 6.8%/năm, vay tín chấp duyệt 24h và hệ thống AI Chatbot nhận diện 77 ý định BANKING77 hỗ trợ 24/7.</p>
+          <div class="hero-buttons">
+            <a href="#catalog" class="btn btn-primary"><i class="fa-solid fa-wallet"></i> Khám Phá Dịch Vụ</a>
+            <a href="#planner" class="btn btn-secondary"><i class="fa-solid fa-calendar-check"></i> Sổ Nhắc Hạn Thanh Toán</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Main visual: Thẻ ngân hàng số -->
+          <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=600" alt="PHAT TAI BANK Digital Card" id="hero-img-element" style="border-radius: 20px; box-shadow: 0 15px 35px rgba(0,123,255,0.2);">
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO BAR (Fetch API Weather & Quote of the Day) -->
+    <div class="info-bar">
+      <div class="container info-container">
+        <!-- Weather widget (Fetch API) -->
+        <div class="weather-widget" id="weather-widget" aria-live="polite">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span id="weather-text"><span class="loading-spinner"><i class="fa-solid fa-spinner"></i></span> Đang tải thông tin thời tiết giao dịch chi nhánh...</span>
+        </div>
+        
+        <!-- Health quote / Security widget (Fetch API) -->
+        <div class="quote-widget" id="quote-widget" aria-live="polite">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span id="quote-text">"Đang tải khuyến cáo bảo mật tài khoản..."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT CATALOG SECTION (Dịch vụ ngân hàng) -->
+    <section id="catalog" class="section-padding container">
+      <div class="catalog-header">
+        <div>
+          <h2>Dịch Vụ Tài Chính - Ngân Hàng</h2>
+          <p style="color: var(--text-muted);">Đa dạng gói sản phẩm: Thẻ thanh toán, Tiết kiệm, Vay tín chấp & Ngân hàng số</p>
+        </div>
+        
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="product-search" placeholder="Tìm gói dịch vụ ngân hàng..." aria-label="Tìm kiếm dịch vụ">
+        </div>
+      </div>
+      
+      <!-- Filter Category Buttons -->
+      <div class="filters-bar" id="category-filters" role="group" aria-label="Bộ lọc dịch vụ">
+        <button class="filter-btn active" data-category="all">Tất Cả</button>
+        <button class="filter-btn" data-category="card">Thẻ Ngân Hàng</button>
+        <button class="filter-btn" data-category="savings">Tiết Kiệm</button>
+        <button class="filter-btn" data-category="loan">Vay Tiêu Dùng</button>
+        <button class="filter-btn" data-category="account">E-Banking Pro</button>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Dynamically populated by products.js -->
+      </div>
+    </section>
+
+    <!-- MEAL PLANNER & SHOPPING LIST SECTION (CRUD & LocalStorage) -->
+    <section id="planner" class="planner-section section-padding">
+      <div class="container planner-container">
+        <div class="planner-card">
+          <div class="planner-header">
+            <h2><i class="fa-solid fa-clipboard-list" style="color: #007bff;"></i> Sổ Nhắc Hạn Thanh Toán & Chi Tiêu</h2>
+            <p>Quản lý các khoản chi tiêu định kỳ, tiền điện nước, dư nợ thẻ và đóng tiền bảo hiểm — không lo trễ hạn.</p>
+          </div>
+          
+          <!-- Form to add new items -->
+          <form class="planner-add-form" id="planner-form">
+            <div class="form-row">
+              <div class="form-group" style="flex: 2;">
+                <label for="planner-item-name">Tên khoản thanh toán</label>
+                <input type="text" id="planner-item-name" placeholder="Ví dụ: Tiền điện tháng này, Trả góp mua xe..." required>
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="planner-item-qty">Số tiền dự kiến</label>
+                <input type="text" id="planner-item-qty" placeholder="Ví dụ: 850.000 VNĐ, 2.5 triệu..." required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label for="planner-item-category">Hạng mục</label>
+                <select id="planner-item-category">
+                  <option value="Điện Nước">Điện - Nước</option>
+                  <option value="Thẻ Tín Dụng">Thẻ Tín Dụng</option>
+                  <option value="Vay - Trả Góp">Vay - Trả Góp</option>
+                  <option value="Bảo Hiểm">Bảo Hiểm / Học Phí</option>
+                  <option value="Tiết Kiệm">Tiết Kiệm Tích Lũy</option>
+                </select>
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="planner-item-priority">Mức ưu tiên</label>
+                <select id="planner-item-priority">
+                  <option value="medium">Bình thường</option>
+                  <option value="high">Khẩn cấp (Sắp đến hạn!)</option>
+                  <option value="low">Kỳ sau</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; background: #007bff;">
+              <i class="fa-solid fa-plus"></i> Thêm Vào Sổ Nhắc Hạn
+            </button>
+          </form>
+          </div>
+          
+          <!-- Search & Filter Controls -->
+          <div class="planner-controls">
+            <div class="planner-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="planner-search-input" placeholder="Tìm khoản thanh toán..." aria-label="Tìm kiếm">
+            </div>
+            
+            <div class="planner-filters-status" role="group" aria-label="Bộ lọc trạng thái">
+              <button class="status-filter-btn active" data-status="all">Tất Cả</button>
+              <button class="status-filter-btn" data-status="pending">Chưa thanh toán</button>
+              <button class="status-filter-btn" data-status="completed">Đã thanh toán</button>
+            </div>
+          </div>
+          
+          <!-- Planner List Items -->
+          <div class="planner-list" id="planner-list">
+            <!-- Dynamically populated by planner.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SHOPPING CART DRAWER (Slide in) -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Service Cart">
+    <div class="cart-header">
+      <h2>Giỏ Đăng Ký Dịch Vụ</h2>
+      <button class="close-cart-btn" id="cart-close" title="Đóng giỏ" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items-list" id="cart-items-container">
+      <!-- Dynamically populated by products.js -->
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Tổng phí phát hành:</span>
+        <span class="total-price" id="cart-total-price">0đ</span>
+      </div>
+      <button class="btn btn-primary btn-checkout" id="cart-checkout-btn"><i class="fa-solid fa-circle-check"></i> Xác Nhận Đăng Ký Dịch Vụ</button>
+    </div>
+  </aside>
+
+  <!-- EDIT PLANNER ITEM MODAL -->
+  <div class="modal" id="edit-modal">
+    <div class="modal-overlay" id="modal-overlay-close"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Chỉnh sửa khoản thanh toán</h3>
+        <button class="close-modal-btn" id="modal-close-btn" title="Đóng" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-form">
+          <input type="hidden" id="edit-item-id">
+          
+          <div class="form-group">
+            <label for="edit-item-name">Tên khoản thanh toán</label>
+            <input type="text" id="edit-item-name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="edit-item-qty">Số tiền (VNĐ)</label>
+            <input type="text" id="edit-item-qty" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="edit-item-category">Hạng mục</label>
+            <select id="edit-item-category">
+              <option value="Điện Nước">Điện - Nước</option>
+              <option value="Thẻ Tín Dụng">Thẻ Tín Dụng</option>
+              <option value="Vay - Trả Góp">Vay - Trả Góp</option>
+              <option value="Bảo Hiểm">Bảo Hiểm / Học Phí</option>
+              <option value="Tiết Kiệm">Tiết Kiệm Tích Lũy</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="edit-item-priority">Mức ưu tiên</label>
+            <select id="edit-item-priority">
+              <option value="medium">Bình thường</option>
+              <option value="high">Khẩn cấp</option>
+              <option value="low">Kỳ sau</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" id="edit-cancel-btn">Hủy</button>
+        <button type="button" class="btn btn-primary btn-sm" id="edit-save-btn">Lưu Thay Đổi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING AI CHATBOT (Phát Tài Bot) -->
+  <div class="chatbot-widget">
+    <!-- Chat toggle button -->
+    <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open Chatbot Chat" title="Trò chuyện với trợ lý AI Phát Tài Bot (phím /)">
+      <i class="fa-solid fa-robot"></i>
+      <span class="notification-dot"></span>
+    </button>
+    
+    <!-- Chat window panel -->
+    <div class="chatbot-window" id="chatbot-window">
+      <!-- Header -->
+      <div class="chat-header" style="background: linear-gradient(135deg, #007bff, #0056d2); display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="bot-avatar" style="background: rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <div class="bot-info">
+            <h3>Phát Tài Bot</h3>
+            <span>Nhận diện ý định BANKING77 · Mạng nơ-ron học sâu MLP</span>
+          </div>
+        </div>
+        <button type="button" id="chatbot-close-btn" class="chat-header-close" aria-label="Đóng chat" title="Đóng cửa sổ chat (phím Esc)">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <!-- Message Area -->
+      <div class="chat-messages" id="chatbot-messages">
+        <div class="message bot">
+          Xin chào quý khách! 🏦 Tôi là <strong>Phát Tài Bot</strong> — Trợ lý AI nhận diện ý định từ câu hỏi người dùng dựa trên tập dữ liệu chuẩn <strong>BANKING77 – Hugging Face</strong>.<br><br>Hệ thống ứng dụng mô hình học sâu <strong>Mạng nơ-ron MLP (Multilayer Perceptron)</strong> kết hợp cơ sở tri thức ngân hàng chuyên sâu để phân tích mọi câu hỏi và cung cấp hướng dẫn quy trình từng bước chuẩn xác. Quý khách muốn hỏi về dịch vụ nào ạ?
+        </div>
+      </div>
+      
+      <!-- Quick Reply chips -->
+      <div class="quick-replies" id="chatbot-quick-replies">
+        <button type="button" class="quick-reply-btn" data-msg="Các bước tạo tài khoản?">Các bước tạo tài khoản?</button>
+        <button type="button" class="quick-reply-btn" data-msg="Hướng dẫn kích hoạt thẻ?">Hướng dẫn kích hoạt thẻ?</button>
+        <button type="button" class="quick-reply-btn" data-msg="Cách mở sổ tiết kiệm?">Cách mở sổ tiết kiệm?</button>
+        <button type="button" class="quick-reply-btn" data-msg="Đăng ký vay tín chấp?">Đăng ký vay tín chấp?</button>
+        <button type="button" class="quick-reply-btn" data-msg="Biểu phí chuyển tiền?">Biểu phí chuyển tiền?</button>
+        <button type="button" class="quick-reply-btn" data-msg="Thẻ bị khóa làm sao?">Thẻ bị khóa làm sao?</button>
+      </div>
+      
+      <!-- Form Input (Dùng div chống 100% reload trang trên mọi trình duyệt) -->
+      <div class="chat-input-area">
+        <div id="chatbot-form" class="chat-form-container">
+          <input type="text" id="chatbot-input" placeholder="Hỏi về thẻ, tiết kiệm, giải toán, đề tài..." autocomplete="off" aria-label="Nội dung chat với chatbot">
+          <button type="button" id="chatbot-send-btn" aria-label="Gửi tin nhắn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom: 20px; display: inline-flex;">
+          <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+          <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+        </a>
+        <p>Hệ thống Ngân hàng số thông minh tích hợp AI Chatbot nhận diện 77 ý định BANKING77 bằng mạng nơ-ron MLP & mô hình đối chứng Logistic Regression. An toàn — Nhanh chóng — Bảo mật.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Zalo"><i class="fa-solid fa-comment-dots"></i></a>
+          <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Dịch Vụ Nổi Bật</h3>
+        <div class="links-list">
+          <a href="#catalog">Thẻ Visa & Mastercard</a>
+          <a href="#catalog">Tiết Kiệm Linh Hoạt</a>
+          <a href="#catalog">Vay Tín Chấp Online</a>
+          <a href="#planner">Sổ Chi Tiêu Định Kỳ</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Chính Sách & Quy Định</h3>
+        <div class="links-list">
+          <a href="#">Bảo Mật Thông Tin & OTP</a>
+          <a href="#">Biểu Phí Dịch Vụ E-Banking</a>
+          <a href="#">Quy Trình Tra Soát Khiếu Nại</a>
+          <a href="#">Chuẩn An Toàn PCI-DSS</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Thông Tin Liên Hệ</h3>
+        <ul class="contact-info">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>268 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>Hotline 24/7: 1900-8888</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>support@phattaibank.vn</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 PHÁT TÀI BANK - Đồ án Ứng Dụng Chatbot Hỗ Trợ Khách Hàng Ngân Hàng (Tập dữ liệu BANKING77).</p>
+      <p>Báo cáo đồ án môn học Thiết kế & Lập trình Web nâng cao - Đại Học Gia Định.</p>
+    </div>
+  </footer>
+
+  <!-- AUTH MODAL (LOGIN / REGISTER) -->
+  <div class="modal" id="auth-modal">
+    <div class="modal-overlay" id="auth-modal-overlay"></div>
+    <div class="modal-content auth-modal-content">
+      <div class="modal-header auth-modal-header">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login-btn">Đăng Nhập E-Banking</button>
+          <button class="auth-tab" id="tab-register-btn">Mở Tài Khoản Mới</button>
+        </div>
+        <button class="close-modal-btn" id="auth-modal-close" title="Đóng" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="auth-form active">
+          <div class="form-group">
+            <label for="login-username">Tên đăng nhập / Số điện thoại</label>
+            <input type="text" id="login-username" placeholder="Nhập tên đăng nhập hoặc SĐT..." required autocomplete="username">
+            <span class="error-msg" id="login-username-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Mật khẩu E-Banking</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="login-password" placeholder="Nhập mật khẩu..." required autocomplete="current-password">
+              <button type="button" class="toggle-password-btn" aria-label="Hiện mật khẩu"><i class="fa-solid fa-eye"></i></button>
+            </div>
+            <span class="error-msg" id="login-password-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 15px; width: 100%; background: #007bff;">Đăng Nhập E-Banking</button>
+          <div class="auth-switch-prompt" style="margin-top: 18px; text-align: center; font-size: 0.9rem; color: var(--text-color);">
+            Chưa có tài khoản E-Banking? <a href="#" id="switch-to-register" class="switch-to-reg-btn" style="color: #007bff; font-weight: 700; text-decoration: underline;">Mở tài khoản ngay</a>
+          </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="auth-form">
+          <div class="form-group">
+            <label for="register-username">Tên đăng nhập mong muốn</label>
+            <input type="text" id="register-username" placeholder="Ví dụ: nguyenvana88" required autocomplete="username">
+            <span class="error-msg" id="register-username-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="register-fullname">Họ và tên chủ tài khoản</label>
+            <input type="text" id="register-fullname" placeholder="Ví dụ: NGUYỄN VĂN A" required>
+            <span class="error-msg" id="register-fullname-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="register-address">Địa chỉ thường trú / Nhận thẻ</label>
+            <input type="text" id="register-address" placeholder="Nhập địa chỉ nhận thẻ ATM vật lý">
+            <span class="error-msg" id="register-address-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Mật khẩu E-Banking (tối thiểu 6 ký tự)</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="register-password" placeholder="Nhập mật khẩu bảo mật..." required autocomplete="new-password">
+              <button type="button" class="toggle-password-btn" aria-label="Hiện mật khẩu"><i class="fa-solid fa-eye"></i></button>
+            </div>
+            <span class="error-msg" id="register-password-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm-password">Xác nhận mật khẩu</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="register-confirm-password" placeholder="Nhập lại mật khẩu..." required autocomplete="new-password">
+              <button type="button" class="toggle-password-btn" aria-label="Hiện mật khẩu"><i class="fa-solid fa-eye"></i></button>
+            </div>
+            <span class="error-msg" id="register-confirm-password-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 15px; width: 100%; background: #007bff;">Mở Tài Khoản PHÁT TÀI BANK</button>
+          <div class="auth-switch-prompt" style="margin-top: 18px; text-align: center; font-size: 0.9rem; color: var(--text-color);">
+            Đã có tài khoản? <a href="#" id="switch-to-login" class="switch-to-log-btn" style="color: #007bff; font-weight: 700; text-decoration: underline;">Đăng nhập ngay</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT SOURCES (Thứ tự nạp module) -->
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js?v=2.1"></script>
+</body>
+</html>
+
+

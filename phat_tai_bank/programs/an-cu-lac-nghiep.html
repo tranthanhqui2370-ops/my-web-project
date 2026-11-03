@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chương Trình 'An Cư Lạc Nghiệp - Mua Nhà 0 Đồng' | PHÁT TÀI BANK</title>
+  <meta name="description" content="Chương trình cho vay mua nhà An Cư Lạc Nghiệp tại PHÁT TÀI BANK. Thời hạn vay kỷ lục 35 năm, hỗ trợ 85% giá trị, lãi suất ưu đãi chỉ từ 6.5%/năm.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .program-detail-hero {
+      background: linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(0, 123, 255, 0.08) 100%);
+      padding: 50px 0 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .detail-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .btn-back-khampha {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn-back-khampha:hover {
+      background: #9b59b6;
+      color: #fff;
+      border-color: #9b59b6;
+      transform: translateX(-4px);
+    }
+    .hero-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hero-text .badge-prog {
+      display: inline-block;
+      background: #9b59b6;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text-color);
+    }
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .metric-card strong {
+      display: block;
+      font-size: 1.35rem;
+      color: #9b59b6;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .metric-card span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .hero-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(155, 89, 182, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      height: 340px;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-body-container {
+      padding: 60px 0 90px;
+    }
+    .detail-section-title {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 28px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .detail-section-title i {
+      color: #9b59b6;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .benefit-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 26px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(155, 89, 182, 0.15);
+      border-color: #9b59b6;
+    }
+    .benefit-item .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(155, 89, 182, 0.12);
+      color: #9b59b6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+    .benefit-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .benefit-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .table-container th {
+      background: rgba(155, 89, 182, 0.08);
+      padding: 16px 20px;
+      font-weight: 700;
+      color: var(--text-color);
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .table-container td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .register-card-box {
+      background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+      border-radius: 20px;
+      padding: 40px;
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.3);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 850px) {
+      .register-card-box {
+        grid-template-columns: 1fr;
+      }
+    }
+    .register-card-box h3 {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .register-card-box p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .register-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .register-form input, .register-form select {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+      color: #1a1d2b;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .btn-submit-reg {
+      padding: 14px;
+      background: #00c896;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit-reg:hover {
+      background: #00a87e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="../bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="../index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="../about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="../contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="../index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="../lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="program-detail-hero">
+      <div class="container">
+        <div class="detail-nav-bar">
+          <div class="breadcrumb">
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+            <a href="../contact.html">Khám Phá</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+            <span>Chương Trình 5: An Cư Lạc Nghiệp - Vay Mua Nhà</span>
+          </div>
+          <a href="../contact.html" class="btn-back-khampha">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Quay lại Khám Phá</span>
+          </a>
+        </div>
+
+        <div class="hero-content-grid">
+          <div class="hero-text">
+            <span class="badge-prog"><i class="fa-solid fa-house-chimney"></i> Gói An Cư 5</span>
+            <h1>Chương Trình 'An Cư Lạc Nghiệp - Mua Nhà 0 Đồng'</h1>
+            <p>Hiện thực hóa giấc mơ sở hữu tổ ấm riêng của bạn ngay hôm nay. Hỗ trợ tài chính lên đến 85% giá trị nhà ở với thời hạn vay kỷ lục 35 năm giúp số tiền trả góp hàng tháng cực kỳ nhẹ nhàng.</p>
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <strong>35 Năm</strong>
+                <span>Thời Hạn Vay Tối Đa</span>
+              </div>
+              <div class="metric-card">
+                <strong style="color: #00c896;">85%</strong>
+                <span>Tài Trợ Giá Trị Nhà</span>
+              </div>
+              <div class="metric-card">
+                <strong style="color: #ff9800;">6.5%/năm</strong>
+                <span>Lãi Suất Cố Định Năm Đầu</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image-wrap">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200" alt="Vay mua nhà">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT BODY -->
+    <section class="container detail-body-container">
+      <h2 class="detail-section-title"><i class="fa-solid fa-key"></i> Đặc Quyền Vượt Trội Của Gói Vay An Cư</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>Ân Hạn Trả Nợ Gốc Đến 24 Tháng</h3>
+          <p>Trong 2 năm đầu tiên nhận nhà, khách hàng chỉ cần trả tiền lãi suất, chưa phải trả tiền gốc, giúp bạn thoải mái sắm sửa nội thất.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-building-user"></i></div>
+          <h3>Thế Chấp Bằng Chính Căn Hộ Dự Định Mua</h3>
+          <p>Không cần thế chấp bất động sản phụ khác, bạn hoàn toàn có thể dùng chính hợp đồng mua bán căn hộ/nhà ở để làm tài sản bảo đảm.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-fire-extinguisher"></i></div>
+          <h3>Tặng Bảo Hiểm Cháy Nổ & Nhà Ở Toàn Diện</h3>
+          <p>Miễn phí 100% hợp đồng bảo hiểm cháy nổ nhà ở trị giá 10 triệu đồng trong 2 năm đầu, bảo vệ bình an tuyệt đối cho mái ấm gia đình.</p>
+        </div>
+      </div>
+
+      <!-- BẢNG DỰ TOÁN TRẢ GÓP MẪU -->
+      <h2 class="detail-section-title"><i class="fa-solid fa-calculator"></i> Bảng Minh Họa Trả Góp Tham Khảo</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Số Tiền Vay</th>
+              <th>Thời Hạn Vay</th>
+              <th>Lãi Suất Ưu Đãi</th>
+              <th>Gốc + Lãi Tháng Đầu</th>
+              <th>Áp Lực Tài Chính</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 Tỷ VNĐ</strong></td>
+              <td>25 Năm (300 tháng)</td>
+              <td>6.5%/năm</td>
+              <td>~8.7 triệu/tháng</td>
+              <td><span style="color: #00c896; font-weight: 700;">Rất Nhẹ Nhàng</span></td>
+            </tr>
+            <tr>
+              <td><strong>2 Tỷ VNĐ</strong></td>
+              <td>35 Năm (420 tháng)</td>
+              <td>6.5%/năm</td>
+              <td>~15.6 triệu/tháng</td>
+              <td><span style="color: #00c896; font-weight: 700;">Phù Hợp Gia Đình Trẻ</span></td>
+            </tr>
+            <tr>
+              <td><strong>3 Tỷ VNĐ</strong></td>
+              <td>35 Năm (420 tháng)</td>
+              <td>6.5%/năm</td>
+              <td>~23.4 triệu/tháng</td>
+              <td><span style="color: #007bff; font-weight: 700;">Nhà Phố Trung Tâm</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FORM ĐĂNG KÝ HỒ SƠ VAY MUA NHÀ -->
+      <div class="register-card-box">
+        <div>
+          <h3>Đăng Ký Tư Vấn Thẩm Định Hồ Sơ</h3>
+          <p>Điền thông tin căn nhà bạn dự định mua, chuyên viên tín dụng bất động sản PHÁT TÀI BANK sẽ định giá sơ bộ và lập phương án trả góp tối ưu.</p>
+        </div>
+        <div>
+          <form class="register-form" onsubmit="window.submitConsultation(event, this, 'CT5', 'Chương Trình An Cư Lạc Nghiệp');">
+            <input type="text" placeholder="Họ và tên người đứng tên vay *" required>
+            <input type="tel" placeholder="Số điện thoại di động *" required pattern="[0-9]{10,11}">
+            <select required>
+              <option value="" disabled selected>Chọn loại hình bất động sản</option>
+              <option value="Chung cư dự án">Chung cư / Căn hộ hình thành tương lai</option>
+              <option value="Nhà phố có sổ đỏ">Nhà phố / Nhà thổ cư có sổ hồng</option>
+              <option value="Đất nền xây dựng">Đất nền dự án / Đất thổ cư</option>
+            </select>
+            <input type="number" placeholder="Nhu cầu số tiền vay (VNĐ) *" min="200000000" step="100000000" required>
+            <button type="submit" class="btn-submit-reg">
+              <i class="fa-solid fa-house"></i>
+              <span>Nhận Bảng Tính Vay & Thẩm Định</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Chương Trình 'An Cư Lạc Nghiệp - Mua Nhà 0 Đồng'.</p>
+    </div>
+  </footer>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/planner.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+// PHÁT TÀI BANK - SCSS Variables
+$font-primary: 'Inter', sans-serif;
+$font-heading: 'Playfair Display', serif;
+
+// Brand Colors (Xanh ngân hàng số & Xanh ngọc phát tài)
+$color-primary: #007bff;        // Royal Bank Blue
+$color-primary-dark: #0056d2;   // Deep Blue
+$color-primary-light: #eef4ff;  // Soft Blue Tint
+$color-accent: #00c896;         // Prosperity Emerald Green
+$color-secondary: #ffb800;      // Gold Wealth Accent
+
+// Neutral Colors
+$color-bg-dark: #0d1117;        // Modern dark banking background
+$color-card-dark: #161b22;      // Dark card bg
+$color-bg-light: #f0f4ff;       // Light banking background
+$color-card-light: #ffffff;     // White card bg
+$color-border-light: #dde3ef;   // Light blue-grey border
+$color-border-dark: #21262d;    // Dark border
+
+// Text Colors
+$color-text-dark: #1a1d2b;      // Dark text for light mode
+$color-text-muted-dark: #5a6378;// Muted dark text
+$color-text-light: #e6edf3;     // Light text for dark mode
+$color-text-muted-light: #8b949e;// Muted light text
+
+// Alert / Status Colors
+$color-success: #00c896;
+$color-warning: #ffb800;
+$color-danger: #ff4757;
+$color-info: #007bff;
+
+// Shadows & Blur
+$shadow-sm: 0 2px 8px rgba(0, 123, 255, 0.06);
+$shadow-md: 0 8px 24px rgba(0, 123, 255, 0.12);
+$shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.12);
+$blur-glass: 12px;
+
+// Transitions
+$transition-fast: all 0.2s ease;
+$transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s ease;
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 20px;
+$radius-round: 50%;

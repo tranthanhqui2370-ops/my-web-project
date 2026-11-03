@@ -1,0 +1,82 @@
+@import 'variables';
+@import 'mixins';
+
+:root {
+  // Theme Light (PHÁT TÀI BANK)
+  --bg-color: #f0f4ff;
+  --card-bg: #ffffff;
+  --text-color: #1a1d2b;
+  --text-muted: #5a6378;
+  --border-color: #dde3ef;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --input-bg: #ffffff;
+  --shadow-color: rgba(0, 123, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 123, 255, 0.15);
+  --color-primary: #007bff;
+  --color-accent: #00c896;
+}
+
+body.dark-mode {
+  // Theme Dark (PHÁT TÀI BANK)
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --text-color: #e6edf3;
+  --text-muted: #8b949e;
+  --border-color: #21262d;
+  --header-bg: rgba(22, 27, 34, 0.9);
+  --input-bg: #1c2128;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(22, 27, 34, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --color-primary: #007bff;
+  --color-accent: #00c896;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  
+  @include custom-scrollbar(8px, transparent, $color-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.heading-fancy {
+  font-family: $font-heading;
+  font-style: italic;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: $transition-fast;
+}
+
+button {
+  font-family: $font-primary;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, select, textarea {
+  font-family: $font-primary;
+}

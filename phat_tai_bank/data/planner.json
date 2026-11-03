@@ -1,0 +1,38 @@
+[
+  {
+    "id": "plan-1",
+    "name": "Thanh toán hóa đơn điện & nước tháng này",
+    "qty": "850.000 VNĐ",
+    "category": "Điện Nước",
+    "priority": "high",
+    "completed": false,
+    "createdAt": 1729468800000
+  },
+  {
+    "id": "plan-2",
+    "name": "Tất toán dư nợ thẻ tín dụng Visa",
+    "qty": "3.500.000 VNĐ",
+    "category": "Thẻ Tín Dụng",
+    "priority": "high",
+    "completed": false,
+    "createdAt": 1729472400000
+  },
+  {
+    "id": "plan-3",
+    "name": "Đóng phí bảo hiểm nhân thọ quý 4",
+    "qty": "5.000.000 VNĐ",
+    "category": "Bảo Hiểm",
+    "priority": "medium",
+    "completed": true,
+    "createdAt": 1729476000000
+  },
+  {
+    "id": "plan-4",
+    "name": "Trích tiền gửi tiết kiệm tích lũy định kỳ",
+    "qty": "2.000.000 VNĐ",
+    "category": "Tiết Kiệm",
+    "priority": "high",
+    "completed": false,
+    "createdAt": 1729480000000
+  }
+]

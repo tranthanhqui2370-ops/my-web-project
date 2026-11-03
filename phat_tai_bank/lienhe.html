@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotline & Tra Soát Khiếu Nại - PHÁT TÀI BANK</title>
+  <meta name="description" content="Liên hệ tổng đài hỗ trợ 24/7 PHÁT TÀI BANK, tra soát giao dịch thẻ, phản ánh dịch vụ và đóng góp ý kiến.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ====== LIENHE PAGE SPECIFIC STYLES ====== */
+    .contact-page-hero {
+      background: linear-gradient(135deg, #e8f8f5 0%, #f9fbf9 100%);
+      padding: 70px 0 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    body.dark-mode .contact-page-hero {
+      background: linear-gradient(135deg, #0e1f14 0%, #0e130f 100%);
+    }
+    .contact-page-hero .shop-name {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #27ae60;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 10px;
+    }
+    .contact-page-hero .shop-name i { font-size: 2rem; }
+    .contact-page-hero h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .contact-page-hero .subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Contact Layout */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      padding: 70px 0;
+      align-items: start;
+    }
+
+    /* Info sidebar */
+    .contact-info-sidebar {}
+  
+    .info-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .info-box h3 {
+      font-size: 1rem;
+      color: #27ae60;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      color: var(--text-color);
+    }
+    .info-item:last-child { margin-bottom: 0; }
+    .info-item .ii-icon {
+      width: 36px; height: 36px;
+      background: rgba(39,174,96,0.1);
+      border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #27ae60; font-size: 0.9rem;
+    }
+    .info-item strong { display: block; margin-bottom: 2px; font-size: 0.82rem; }
+    .info-item span { color: var(--text-muted); font-size: 0.85rem; }
+    .working-hours .hour-row {
+      display: flex; justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+    }
+    .working-hours .hour-row:last-child { border-bottom: none; }
+    .working-hours .hour-open { color: #27ae60; font-weight: 600; }
+
+    /* Form Card */
+    .contact-form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    }
+    .form-title {
+      margin-bottom: 28px;
+    }
+    .form-title h2 { font-size: 1.6rem; margin-bottom: 6px; }
+    .form-title p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Form groups */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    .form-group label .required { color: #e74c3c; margin-left: 2px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #27ae60;
+      box-shadow: 0 0 0 3px rgba(39,174,96,0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Radio / Checkbox groups */
+    .option-group-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 10px;
+    }
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .radio-option,
+    .check-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-color);
+    }
+    .radio-option input,
+    .check-option input {
+      width: 18px; height: 18px;
+      accent-color: #27ae60;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .custom-radio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      background: var(--bg-color);
+      user-select: none;
+    }
+    .custom-radio-btn:has(input:checked),
+    .custom-radio-btn.selected {
+      border-color: #27ae60;
+      background: rgba(39,174,96,0.08);
+      color: #27ae60;
+      font-weight: 600;
+    }
+    .custom-radio-btn input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+    /* Terms checkbox */
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 16px;
+      background: rgba(39,174,96,0.05);
+      border: 1px solid rgba(39,174,96,0.2);
+      border-radius: 10px;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+    .terms-row input[type="checkbox"] {
+      width: 20px; height: 20px;
+      accent-color: #27ae60;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .terms-row label {
+      font-size: 0.88rem;
+      color: var(--text-color);
+      cursor: pointer;
+      line-height: 1.5;
+    }
+    .terms-row label a { color: #27ae60; text-decoration: underline; }
+
+    /* Form buttons */
+    .form-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-submit {
+      flex: 1;
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-submit:hover {
+      background: #1e8449;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(39,174,96,0.35);
+    }
+    .btn-reset {
+      background: var(--bg-color);
+      color: var(--text-color);
+      border: 1.5px solid var(--border-color);
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-reset:hover {
+      background: var(--card-bg);
+      border-color: #e74c3c;
+      color: #e74c3c;
+    }
+
+    /* Success message */
+    .success-toast {
+      display: none;
+      background: linear-gradient(135deg, #27ae60, #1e8449);
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+      animation: fadeIn 0.4s ease;
+    }
+    .success-toast i { margin-right: 8px; }
+
+    /* Error message */
+    .field-error {
+      color: #e74c3c;
+      font-size: 0.75rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    /* Back button */
+    .back-btn-wrap { text-align: center; padding: 40px 0; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #27ae60; color: #fff;
+      padding: 13px 28px; border-radius: 12px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(39,174,96,0.3);
+    }
+    .back-btn:hover { background: #1e8449; transform: translateY(-3px); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767px) {
+      .contact-form-card { padding: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <!-- Menu Button & Top-Left Dropdown Panel -->
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <!-- Compact Menu Panel ("Bản nhỏ góc trái") -->
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ</span></a>
+            <a href="index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ</span></a>
+            <a href="about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu</span></a>
+            <a href="contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Kế Hoạch Mua Sắm</span></a>
+            <a href="lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Liên Hệ</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. AI Chatbot</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ hàng" aria-label="Open Shopping Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="contact-page-hero">
+      <div class="container">
+        <div class="shop-name"><i class="fa-solid fa-leaf"></i> PTB</div>
+        <h1>Liên Hệ</h1>
+        <p class="subtitle">Nếu bạn muốn liên hệ với tôi, vui lòng sử dụng các thông tin bên dưới hoặc điền vào biểu mẫu và chúng tôi sẽ phản hồi trong vòng 24 giờ.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- THÔNG TIN LIÊN HỆ (Sidebar) -->
+        <aside class="contact-info-sidebar">
+          <div class="info-box">
+            <h3><i class="fa-solid fa-address-card"></i> Thông Tin Liên Hệ</h3>
+            <div class="info-item">
+              <div class="ii-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Địa chỉ cửa hàng</strong>
+                <span>123 Đường Organic, Quận 1, TP. Hồ Chí Minh</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="ii-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Hotline hỗ trợ</strong>
+                <span>1800 6868 (Miễn phí)</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="ii-icon"><i class="fa-brands fa-zalo"></i></div>
+              <div>
+                <strong>Zalo chăm sóc khách hàng</strong>
+                <span>0909 123 456</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="ii-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>contact@organico.vn</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3><i class="fa-solid fa-clock"></i> Giờ Làm Việc</h3>
+            <div class="working-hours">
+              <div class="hour-row">
+                <span>Thứ 2 – Thứ 6</span>
+                <span class="hour-open">7:00 – 21:00</span>
+              </div>
+              <div class="hour-row">
+                <span>Thứ 7</span>
+                <span class="hour-open">7:00 – 19:00</span>
+              </div>
+              <div class="hour-row">
+                <span>Chủ Nhật</span>
+                <span class="hour-open">8:00 – 17:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3><i class="fa-solid fa-share-nodes"></i> Mạng Xã Hội</h3>
+            <div class="info-item">
+              <div class="ii-icon" style="background: rgba(24,119,242,0.1); color: #1877f2;">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div>
+                <strong>Facebook</strong>
+                <span>fb.com/OrganiCoVietnam</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="ii-icon" style="background: rgba(225,48,108,0.1); color: #e1306c;">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <strong>Instagram</strong>
+                <span>@organico.vn</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- BIỂU MẪU LIÊN HỆ -->
+        <div class="contact-form-card">
+          <div class="form-title">
+            <h2>📋 Gửi Yêu Cầu Liên Hệ</h2>
+            <p>Vui lòng điền đầy đủ thông tin bên dưới, chúng tôi sẽ liên hệ lại với bạn sớm nhất.</p>
+          </div>
+
+          <form id="contact-form" novalidate>
+
+            <!-- Hàng 1: Họ Tên + Ngày Sinh -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name">Họ và Tên <span class="required">*</span></label>
+                <input type="text" id="full-name" name="fullName" placeholder="Ví dụ: Nguyễn Văn A" required>
+                <span class="field-error" id="err-name">Vui lòng nhập họ và tên.</span>
+              </div>
+              <div class="form-group">
+                <label for="birthday">Ngày Sinh <span class="required">*</span></label>
+                <input type="date" id="birthday" name="birthday" required>
+                <span class="field-error" id="err-birthday">Vui lòng chọn ngày sinh.</span>
+              </div>
+            </div>
+
+            <!-- Hàng 2: Số Điện Thoại + Email -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Số Điện Thoại <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Ví dụ: 0909 123 456" required>
+                <span class="field-error" id="err-phone">Vui lòng nhập số điện thoại hợp lệ.</span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Ví dụ: email@gmail.com" required>
+                <span class="field-error" id="err-email">Vui lòng nhập email hợp lệ.</span>
+              </div>
+            </div>
+
+            <!-- Mục đích liên hệ -->
+            <div class="form-group">
+              <div class="option-group-label">Mục Đích Liên Hệ <span class="required">*</span></div>
+              <div class="options-row" id="purpose-group">
+                <label class="custom-radio-btn">
+                  <input type="radio" name="purpose" value="thucpham">
+                  <i class="fa-solid fa-carrot"></i> Thực Phẩm
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="purpose" value="tuvan">
+                  <i class="fa-solid fa-comments"></i> Tư Vấn
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="purpose" value="hopta">
+                  <i class="fa-solid fa-handshake"></i> Hợp Tác
+                </label>
+              </div>
+              <span class="field-error" id="err-purpose">Vui lòng chọn mục đích liên hệ.</span>
+            </div>
+
+            <!-- Kênh liên hệ ưa thích -->
+            <div class="form-group">
+              <div class="option-group-label">Kênh Liên Hệ Ưa Thích <span class="required">*</span></div>
+              <div class="options-row" id="channel-group">
+                <label class="custom-radio-btn">
+                  <input type="radio" name="channel" value="stt">
+                  <i class="fa-solid fa-phone"></i> STT (Điện thoại)
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="channel" value="zalo">
+                  <i class="fa-brands fa-zalo"></i> Zalo
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="channel" value="email">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </label>
+              </div>
+              <span class="field-error" id="err-channel">Vui lòng chọn kênh liên hệ.</span>
+            </div>
+
+            <!-- Nội dung yêu cầu -->
+            <div class="form-group">
+              <label for="content">Nội Dung Yêu Cầu <span class="required">*</span></label>
+              <textarea id="content" name="content" placeholder="Hãy mô tả chi tiết yêu cầu hoặc câu hỏi của bạn để chúng tôi có thể hỗ trợ tốt nhất..." required></textarea>
+              <span class="field-error" id="err-content">Vui lòng nhập nội dung yêu cầu.</span>
+            </div>
+
+            <!-- Điều khoản -->
+            <div class="terms-row" id="terms-row">
+              <input type="checkbox" id="terms-check" name="terms" required>
+              <label for="terms-check">
+                Tôi chấp nhận các <a href="#" onclick="return false;">Điều Khoản & Điều Kiện</a> và
+                <a href="#" onclick="return false;">Chính Sách Bảo Mật</a> của cửa hàng OrganiCo.
+              </label>
+            </div>
+            <span class="field-error" id="err-terms" style="margin-top: -14px; margin-bottom: 16px; display: none;"></span>
+
+            <!-- Nút hành động -->
+            <div class="form-buttons">
+              <button type="reset" class="btn-reset" id="btn-reset">
+                <i class="fa-solid fa-trash"></i> Xóa
+              </button>
+              <button type="submit" class="btn-submit" id="btn-submit">
+                <i class="fa-solid fa-paper-plane"></i> Gửi Liên Hệ
+              </button>
+            </div>
+
+            <!-- Toast thành công -->
+            <div class="success-toast" id="success-toast">
+              <i class="fa-solid fa-circle-check"></i>
+              Gửi thành công! Chúng tôi sẽ liên hệ lại với bạn trong vòng 24 giờ. Cảm ơn bạn! 💚
+            </div>
+
+          </form>
+        </div>
+      </div><!-- /.contact-layout -->
+
+      <!-- NÚT QUAY LẠI -->
+      <div class="back-btn-wrap">
+        <a href="index.html" class="back-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          Quay Lại Trang Chủ
+        </a>
+      </div>
+    </div><!-- /.container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 OrganiCo - Dự án Website Nông Sản Sạch | Sinh viên Đại Học Gia Định</p>
+    </div>
+  </footer>
+
+  <script>
+    // =============================================
+    // THEME TOGGLE
+    // =============================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+    const savedTheme = localStorage.getItem('organico_theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+    }
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('organico_theme', isDark ? 'dark' : 'light');
+        if (themeIcon) themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      });
+    }
+
+    // =============================================
+    // RADIO BUTTON VISUAL SELECTION
+    // =============================================
+    document.querySelectorAll('.custom-radio-btn input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        // Xóa trạng thái selected của tất cả nút cùng nhóm
+        const groupName = radio.getAttribute('name');
+        document.querySelectorAll(`.custom-radio-btn input[name="${groupName}"]`).forEach(r => {
+          r.closest('.custom-radio-btn').classList.remove('selected');
+        });
+        // Thêm selected cho nút được chọn
+        radio.closest('.custom-radio-btn').classList.add('selected');
+      });
+    });
+
+    // =============================================
+    // FORM VALIDATION & SUBMIT
+    // =============================================
+    const form = document.getElementById('contact-form');
+
+    // Hàm hiển thị lỗi
+    function showError(id, show = true) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = show ? 'block' : 'none';
+    }
+
+    // Hàm highlight input lỗi
+    function highlightInput(el, hasError) {
+      if (!el) return;
+      el.style.borderColor = hasError ? '#e74c3c' : '';
+      el.style.boxShadow = hasError ? '0 0 0 3px rgba(231,76,60,0.1)' : '';
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let isValid = true;
+
+      // Xóa tất cả lỗi cũ
+      document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('input, select, textarea').forEach(el => {
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+      });
+
+      // Validate Họ Tên
+      const fullName = document.getElementById('full-name');
+      if (!fullName.value.trim() || fullName.value.trim().length < 2) {
+        showError('err-name');
+        highlightInput(fullName, true);
+        isValid = false;
+      }
+
+      // Validate Ngày Sinh
+      const birthday = document.getElementById('birthday');
+      if (!birthday.value) {
+        showError('err-birthday');
+        highlightInput(birthday, true);
+        isValid = false;
+      }
+
+      // Validate Số Điện Thoại
+      const phone = document.getElementById('phone');
+      const phoneRegex = /^(0|\+84)[0-9]{8,10}$/;
+      if (!phone.value.trim() || !phoneRegex.test(phone.value.replace(/\s/g, ''))) {
+        showError('err-phone');
+        highlightInput(phone, true);
+        isValid = false;
+      }
+
+      // Validate Email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value)) {
+        showError('err-email');
+        highlightInput(email, true);
+        isValid = false;
+      }
+
+      // Validate Mục đích
+      const purpose = document.querySelector('input[name="purpose"]:checked');
+      if (!purpose) {
+        showError('err-purpose');
+        isValid = false;
+      }
+
+      // Validate Kênh liên hệ
+      const channel = document.querySelector('input[name="channel"]:checked');
+      if (!channel) {
+        showError('err-channel');
+        isValid = false;
+      }
+
+      // Validate Nội dung
+      const content = document.getElementById('content');
+      if (!content.value.trim() || content.value.trim().length < 10) {
+        showError('err-content');
+        highlightInput(content, true);
+        isValid = false;
+      }
+
+      // Validate Điều khoản
+      const terms = document.getElementById('terms-check');
+      if (!terms.checked) {
+        const errTerms = document.getElementById('err-terms');
+        errTerms.textContent = 'Vui lòng đồng ý với điều khoản của cửa hàng.';
+        errTerms.style.display = 'block';
+        document.getElementById('terms-row').style.borderColor = '#e74c3c';
+        isValid = false;
+      }
+
+      // Nếu tất cả hợp lệ → gửi (mô phỏng)
+      if (isValid) {
+        const submitBtn = document.getElementById('btn-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
+
+        // Mô phỏng gửi dữ liệu trong 1.5 giây
+        setTimeout(() => {
+          form.reset();
+          document.querySelectorAll('.custom-radio-btn').forEach(el => el.classList.remove('selected'));
+          document.getElementById('terms-row').style.borderColor = '';
+
+          const toast = document.getElementById('success-toast');
+          toast.style.display = 'block';
+          toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Gửi Liên Hệ';
+
+          // Ẩn toast sau 6 giây
+          setTimeout(() => { toast.style.display = 'none'; }, 6000);
+        }, 1500);
+      }
+    });
+
+    // Reset button xóa lỗi
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+          el.style.borderColor = '';
+          el.style.boxShadow = '';
+        });
+        document.querySelectorAll('.custom-radio-btn').forEach(el => el.classList.remove('selected'));
+        document.getElementById('terms-row').style.borderColor = '';
+        document.getElementById('success-toast').style.display = 'none';
+      }, 10);
+    });
+  </script>
+
+  <!-- JAVASCRIPT SOURCES -->
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+

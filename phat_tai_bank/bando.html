@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Đồ Chi Nhánh & ATM - PHÁT TÀI BANK</title>
+  <meta name="description" content="Bản đồ mạng lưới chi nhánh, phòng giao dịch và hệ thống cây ATM 24/7 của PHÁT TÀI BANK.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .map-container { width: 100%; height: 420px; margin: 20px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color); }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; background: #007bff; color: #fff; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .back-btn:hover { background: #0056d2; transform: translateY(-2px); }
+    .branch-card { background: var(--card-bg, #fff); border: 1px solid var(--border-color, #eee); border-radius: 12px; padding: 18px; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký dịch vụ" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 20px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="color: #007bff; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">MẠNG LƯỚI TOÀN QUỐC</span>
+      <h1 style="font-size: 2.2rem; margin: 10px 0;">Bản Đồ Hội Sở & Hệ Thống ATM 24/7</h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Tìm kiếm điểm giao dịch, phòng giao dịch và cây ATM thông minh CDM nộp/rút tiền tự động của PHÁT TÀI BANK gần bạn nhất.</p>
+    </div>
+
+    <!-- Map Embed / Display -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4946681007846!2d106.65782721474937!3d10.77337429232356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec3c161a3fb%3A0x8ae45b117b3ce721!2zMjY4IEzDvSBUaMaw4budbmcgS2nhu4d0LCBQaMaw4budbmcgMTQsIFF14bqtbiAxMCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1680000000000!5m2!1svi!2s" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Branch List -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+      <div class="branch-card">
+        <h3 style="color: #007bff; margin-bottom: 8px;"><i class="fa-solid fa-building"></i> Hội Sở Chính TP.HCM</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">📍 268 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">⏰ Giờ mở cửa: 7:30 - 17:00 (Thứ 2 - Thứ 6) & Thứ 7 (7:30 - 11:30)</p>
+        <p style="font-size: 0.9rem; color: #00c896; font-weight: 600;">🏧 Cây ATM/CDM 24/7: Hỗ trợ nạp tiền mặt và rút tiền tức thì</p>
+      </div>
+
+      <div class="branch-card">
+        <h3 style="color: #007bff; margin-bottom: 8px;"><i class="fa-solid fa-building"></i> Chi Nhánh Quận 1 - Sài Gòn</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">📍 123 Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP.HCM</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">⏰ Giờ mở cửa: 8:00 - 17:00 (Thứ 2 - Thứ 6)</p>
+        <p style="font-size: 0.9rem; color: #00c896; font-weight: 600;">🏧 Cây ATM 24/7: Rút tiền không cần thẻ bằng mã QR E-Banking</p>
+      </div>
+
+      <div class="branch-card">
+        <h3 style="color: #007bff; margin-bottom: 8px;"><i class="fa-solid fa-building"></i> Chi Nhánh Hà Nội - Hoàn Kiếm</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">📍 88 Phố Lý Thường Kiệt, Quận Hoàn Kiếm, TP. Hà Nội</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">⏰ Giờ mở cửa: 8:00 - 17:00 (Thứ 2 - Thứ 6)</p>
+        <p style="font-size: 0.9rem; color: #00c896; font-weight: 600;">🏧 Dịch vụ VIP Lounge: Dành riêng cho chủ thẻ Mastercard Gold</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Quay Lại Trang Chủ Ngân Hàng
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Hệ thống Ngân Hàng Số & Trợ Lý AI Chatbot BANKING77</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+

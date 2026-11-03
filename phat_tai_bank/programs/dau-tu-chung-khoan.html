@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng | PHÁT TÀI BANK</title>
+  <meta name="description" content="Chương trình Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng tại PHÁT TÀI BANK. Miễn phí giao dịch 6 tháng đầu, tỷ suất sinh lời vượt trội 12-18%/năm.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .program-detail-hero {
+      background: linear-gradient(135deg, rgba(0, 123, 255, 0.08) 0%, rgba(0, 200, 150, 0.08) 100%);
+      padding: 50px 0 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .detail-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .btn-back-khampha {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn-back-khampha:hover {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+      transform: translateX(-4px);
+    }
+    .hero-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hero-text .badge-prog {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text-color);
+    }
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .metric-card strong {
+      display: block;
+      font-size: 1.4rem;
+      color: #007bff;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .metric-card span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .hero-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 123, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      height: 340px;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-body-container {
+      padding: 60px 0 90px;
+    }
+    .detail-section-title {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 28px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .detail-section-title i {
+      color: #007bff;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .benefit-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 26px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 123, 255, 0.12);
+      border-color: #007bff;
+    }
+    .benefit-item .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(0, 123, 255, 0.1);
+      color: #007bff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+    .benefit-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .benefit-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .table-container th {
+      background: rgba(0, 123, 255, 0.08);
+      padding: 16px 20px;
+      font-weight: 700;
+      color: var(--text-color);
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .table-container td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .table-container tr:last-child td {
+      border-bottom: none;
+    }
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .step-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+    }
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #007bff, #00c896);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .step-box h4 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+    .step-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .register-card-box {
+      background: linear-gradient(135deg, #007bff 0%, #0056d2 100%);
+      border-radius: 20px;
+      padding: 40px;
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(0, 123, 255, 0.3);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 850px) {
+      .register-card-box {
+        grid-template-columns: 1fr;
+      }
+    }
+    .register-card-box h3 {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .register-card-box p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .register-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .register-form input, .register-form select {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+      color: #1a1d2b;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .btn-submit-reg {
+      padding: 14px;
+      background: #00c896;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit-reg:hover {
+      background: #00a87e;
+      box-shadow: 0 6px 18px rgba(0, 200, 150, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="../bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="../index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="../about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="../contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="../index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="../lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="program-detail-hero">
+      <div class="container">
+        <div class="detail-nav-bar">
+          <div class="breadcrumb">
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+            <a href="../contact.html">Khám Phá</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+            <span>Chương Trình 1: Đầu Tư Cổ Phiếu & Quỹ Mở</span>
+          </div>
+          <a href="../contact.html" class="btn-back-khampha">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Quay lại Khám Phá</span>
+          </a>
+        </div>
+
+        <div class="hero-content-grid">
+          <div class="hero-text">
+            <span class="badge-prog"><i class="fa-solid fa-arrow-trend-up"></i> Chương Trình Đầu Tư 1</span>
+            <h1>Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng</h1>
+            <p>Giải pháp gia tăng tài sản thông minh cùng các chuyên gia quản lý quỹ hàng đầu. Tích hợp trực tiếp trên nền tảng ngân hàng số PHÁT TÀI BANK, giao dịch tức thì không độ trễ.</p>
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <strong>12 - 18%</strong>
+                <span>Lợi Nhuận Kỳ Vọng/Năm</span>
+              </div>
+              <div class="metric-card">
+                <strong style="color: #00c896;">0 VNĐ</strong>
+                <span>Phí GD 6 Tháng Đầu</span>
+              </div>
+              <div class="metric-card">
+                <strong style="color: #ff9800;">100.000đ</strong>
+                <span>Vốn Khởi Điểm Tối Thiểu</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image-wrap">
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=1200" alt="Đầu tư cổ phiếu & quỹ mở">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT BODY -->
+    <section class="container detail-body-container">
+      <!-- ĐẶC QUYỀN NỔI BẬT -->
+      <h2 class="detail-section-title"><i class="fa-solid fa-star"></i> Đặc Quyền & Quyền Lợi Dành Cho Bạn</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Khớp Lệnh Tức Thì Tốc Độ Cao</h3>
+          <p>Hạ tầng kết nối trực tiếp đến sàn HOSE và HNX thông qua API chuyên dụng, giảm thiểu tối đa trượt giá khi khớp lệnh lệnh mua bán chứng khoán.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-user-tie"></i></div>
+          <h3>Đội Ngũ Quản Lý Quỹ Tinh Anh</h3>
+          <p>Danh mục quỹ mở được tái cơ cấu linh hoạt theo xu hướng chu kỳ kinh tế bởi các chuyên gia tài chính hơn 15 năm kinh nghiệm trong ngành.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3>Đa Dạng Hóa Danh Mục Giảm Rủi Ro</h3>
+          <p>Tự động phân bổ nguồn vốn vào các nhóm cổ phiếu đầu ngành VN30 kết hợp trái phiếu chính phủ có độ an toàn tuyệt đối.</p>
+        </div>
+      </div>
+
+      <!-- BẢNG SO SÁNH CÁC GÓI ĐẦU TƯ -->
+      <h2 class="detail-section-title"><i class="fa-solid fa-table-list"></i> Các Gói Đầu Tư & Quỹ Mở</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Tên Sản Phẩm</th>
+              <th>Mức Rủi Ro</th>
+              <th>Lợi Nhuận Kỳ Vọng</th>
+              <th>Kỳ Hạn Khuyến Nghị</th>
+              <th>Phí Quản Lý</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Quỹ Cổ Phiếu Thịnh Vượng (PT-EQUITY)</strong></td>
+              <td><span style="color: #ff9800; font-weight: 600;">Trung Bình - Cao</span></td>
+              <td>14 - 18%/năm</td>
+              <td>Từ 12 tháng trở lên</td>
+              <td>0.75%/năm</td>
+            </tr>
+            <tr>
+              <td><strong>Quỹ Trái Phiếu An Toàn (PT-BOND)</strong></td>
+              <td><span style="color: #00c896; font-weight: 600;">Thấp - Rất An Toàn</span></td>
+              <td>8.5 - 10%/năm</td>
+              <td>Từ 6 tháng trở lên</td>
+              <td>0.45%/năm</td>
+            </tr>
+            <tr>
+              <td><strong>Tài Khoản Chứng Khoán Tự Doanh</strong></td>
+              <td><span style="color: #f44336; font-weight: 600;">Tùy Chọn Nhà Đầu Tư</span></td>
+              <td>Tùy danh mục cá nhân</td>
+              <td>Linh hoạt 24/7</td>
+              <td>Miễn phí 6 tháng</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 3 BƯỚC ĐẦU TƯ -->
+      <h2 class="detail-section-title"><i class="fa-solid fa-list-ol"></i> 3 Bước Bắt Đầu Đầu Tư Ngay</h2>
+      <div class="steps-container">
+        <div class="step-box">
+          <div class="step-number">1</div>
+          <h4>Mở Tài Khoản E-Banking</h4>
+          <p>Đăng ký tài khoản trực tuyến qua định danh eKYC trên web chỉ trong 3 phút, nhận ngay mã số giao dịch bảo mật.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">2</div>
+          <h4>Nạp Tiền Vào Ví Đầu Tư</h4>
+          <p>Chuyển tiền nhanh 24/7 từ tài khoản thanh toán PHÁT TÀI BANK sang tài khoản đầu tư không mất bất kỳ khoản phí nào.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">3</div>
+          <h4>Chọn Gói & Theo Dõi Tăng Trưởng</h4>
+          <p>Lựa chọn gói Quỹ Mở phù hợp với khẩu vị rủi ro và nhận báo cáo sao kê biến động tài sản chi tiết mỗi tuần.</p>
+        </div>
+      </div>
+
+      <!-- FORM ĐĂNG KÝ TƯ VẤN TRỰC TUYẾN -->
+      <div class="register-card-box">
+        <div>
+          <h3>Đăng Ký Nhận Tư Vấn Danh Mục</h3>
+          <p>Để lại thông tin, chuyên viên tư vấn đầu tư tài chính cao cấp của PHÁT TÀI BANK sẽ liên hệ với bạn trong vòng 15 phút làm việc.</p>
+        </div>
+        <div>
+          <form class="register-form" onsubmit="window.submitConsultation(event, this, 'CT1', 'Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng');">
+            <input type="text" placeholder="Họ và tên của quý khách *" required>
+            <input type="tel" placeholder="Số điện thoại liên hệ *" required pattern="[0-9]{10,11}">
+            <select required>
+              <option value="" disabled selected>Chọn gói sản phẩm bạn quan tâm</option>
+              <option value="PT-EQUITY">Quỹ Cổ Phiếu Thịnh Vượng (14 - 18%/năm)</option>
+              <option value="PT-BOND">Quỹ Trái Phiếu An Toàn (8.5 - 10%/năm)</option>
+              <option value="Tài Khoản Chứng Khoán Tự Do">Tài Khoản Chứng Khoán Tự Doanh (0đ phí)</option>
+            </select>
+            <button type="submit" class="btn-submit-reg">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Gửi Đăng Ký Tư Vấn Ngay</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Chương Trình Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng.</p>
+    </div>
+  </footer>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/planner.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

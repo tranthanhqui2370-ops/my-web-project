@@ -1,0 +1,11 @@
+{
+  "provider": "chatgpt_free",
+  "model": "gpt-4o-mini",
+  "api_keys": {
+    "openai": "",
+    "deepseek": "",
+    "gemini": "",
+    "groq": ""
+  },
+  "enable_banking_expert_routing": true
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Danh Mục - PHÁT TÀI BANK | Tất Cả Mục & Chức Năng</title>
+  <meta name="description" content="Menu tổng hợp 8 trang chức năng chính của hệ thống Ngân Hàng Số PHÁT TÀI BANK và Trợ Lý AI BANKING77.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .menu-page-hero {
+      background: linear-gradient(135deg, #eef4ff 0%, #f0fff8 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    body.dark-mode .menu-page-hero {
+      background: linear-gradient(135deg, #0d1528 0%, #0d1e1a 100%);
+    }
+    .badge-menu {
+      display: inline-block;
+      background: rgba(0, 123, 255, 0.12);
+      color: #007bff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+    .menu-page-hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+    .menu-grid-section { padding: 50px 0 70px; }
+    .menu-board-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .menu-card {
+      background-color: var(--card-bg, #fff);
+      border: 1px solid var(--border-color, #eee);
+      border-radius: 18px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 123, 255, 0.15);
+      border-color: #007bff;
+    }
+    .card-index-badge {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: rgba(0, 123, 255, 0.1);
+      color: #007bff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+    .icon-box {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      background: rgba(0, 123, 255, 0.1);
+      color: #007bff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      transition: all 0.3s ease;
+    }
+    .menu-card:hover .icon-box {
+      background: #007bff;
+      color: #fff;
+    }
+    .card-action-btn {
+      display: inline-flex;
+      align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 12px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 10px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.25s ease;
+    }
+    .menu-card:hover .card-action-btn {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+    .back-home-banner {
+      background: linear-gradient(135deg, #007bff 0%, #0056d2 100%);
+      border-radius: 18px;
+      padding: 36px;
+      text-align: center;
+      color: #fff;
+      margin-top: 45px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="menu.html" class="action-btn menu-toggle-btn active" id="menu-toggle" title="Menu Danh Mục" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+        <span style="font-size: 0.85rem; font-weight: 700; margin-left: 6px;">Menu</span>
+      </a>
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký dịch vụ" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-page-hero">
+      <div class="container">
+        <span class="badge-menu"><i class="fa-solid fa-list-check"></i> SƠ ĐỒ CHỨC NĂNG HỆ THỐNG</span>
+        <h1>Bảng Menu 8 Mục Dịch Vụ PHÁT TÀI BANK</h1>
+        <p>Chọn bất kỳ mục nào dưới đây để truy cập trực tiếp các tiện ích ngân hàng số và trợ lý trí tuệ nhân tạo BANKING77</p>
+      </div>
+    </section>
+
+    <section class="menu-grid-section">
+      <div class="container">
+        <div class="menu-board-grid">
+          
+          <!-- MỤC 0 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 0</span>
+            <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Bản Đồ Chi Nhánh & ATM</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Tìm kiếm hội sở chính, phòng giao dịch và hệ thống cây ATM/CDM 24/7 của PHÁT TÀI BANK trên toàn quốc.</p>
+            <a href="bando.html" class="card-action-btn">
+              <span>Đến Bản Đồ Chi Nhánh</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 1 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 1</span>
+            <div class="icon-box"><i class="fa-solid fa-house"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Trang Chủ E-Banking</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Trang tổng quan ngân hàng số, đăng ký dịch vụ thẻ, cập nhật thời tiết và mẹo bảo mật tài khoản trực tiếp.</p>
+            <a href="index.html" class="card-action-btn">
+              <span>Về Trang Chủ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 2 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 2</span>
+            <div class="icon-box"><i class="fa-solid fa-circle-info"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Giới Thiệu Đồ Án AI</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Báo cáo đề tài Chatbot phân loại 77 ý định BANKING77, kiến trúc mạng nơ-ron MLP và mô hình Logistic Regression.</p>
+            <a href="about.html" class="card-action-btn">
+              <span>Đến Trang Giới Thiệu</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 3 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 3</span>
+            <div class="icon-box"><i class="fa-solid fa-compass"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Khám Phá & Sự Kiện Đầu Tư</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Khám phá 7 sự kiện tài chính, cơ hội đầu tư cổ phiếu, vàng kỹ thuật số, gói tín dụng SME và chương trình ưu đãi đặc quyền.</p>
+            <a href="contact.html" class="card-action-btn">
+              <span>Khám Phá Ngay</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 4 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 4</span>
+            <div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Sổ Nhắc Hạn Thanh Toán</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Công cụ CRUD quản lý chi tiêu: Thêm mới, sửa, đánh dấu hoàn thành và xóa lịch nộp tiền điện, nước, trả góp.</p>
+            <a href="index.html#planner" class="card-action-btn">
+              <span>Mở Sổ Chi Tiêu</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 5 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 5</span>
+            <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Hotline & Tra Soát</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Tổng đài hỗ trợ 24/7 (1900-8888), kênh tiếp nhận khiếu nại giao dịch, tra soát tài khoản và gửi thư đóng góp ý kiến.</p>
+            <a href="lienhe.html" class="card-action-btn">
+              <span>Đến Kênh Liên Hệ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 6 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 6</span>
+            <div class="icon-box"><i class="fa-solid fa-user-plus"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Mở Tài Khoản E-Banking</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Đăng ký eKYC trực tuyến chỉ trong 3 phút, cấp số tài khoản định danh tự động và nhận ngay gói miễn phí chuyển khoản.</p>
+            <a href="#" id="register-link" class="card-action-btn nav-item-register">
+              <span>Mở Form Đăng Ký</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- MỤC 7 -->
+          <div class="menu-card">
+            <span class="card-index-badge">Mục 7</span>
+            <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;">Phát Tài Bot (AI Chatbot)</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Trợ lý AI nhận diện 77 ý định BANKING77, hiển thị hộp đánh giá Accuracy & Confidence trực quan.</p>
+            <a href="#" onclick="if(window.toggleChatbot) window.toggleChatbot(); return false;" class="card-action-btn">
+              <span>Trò Chuyện Với AI Bot</span>
+              <i class="fa-solid fa-comments"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="back-home-banner">
+          <h2 style="font-size: 1.8rem; margin-bottom: 8px;">Đồng hành cùng thịnh vượng tài chính của bạn</h2>
+          <p style="opacity: 0.9; margin-bottom: 20px;">PHÁT TÀI BANK cam kết mang đến dịch vụ ngân hàng số an toàn, bảo mật và hiện đại nhất.</p>
+          <a href="index.html" class="btn btn-secondary" style="background: #ffffff; color: #007bff; font-weight: 700; padding: 14px 30px; border-radius: 10px; text-decoration: none;">
+            <i class="fa-solid fa-house" style="margin-right: 6px;"></i> Quay Lại Trang Chủ Ngân Hàng
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Bảng Menu Tổng Hợp Hệ Thống Ngân Hàng Số & Trợ Lý AI BANKING77</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới Thiệu Đồ Án AI Chatbot Ngân Hàng - PHÁT TÀI BANK</title>
+  <meta name="description" content="Báo cáo đề tài Xây dựng Ứng Dụng Chatbot Nhận Diện Ý Định Từ Câu Hỏi Người Dùng dựa trên tập dữ liệu BANKING77 - PHÁT TÀI BANK.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, #eef4ff 0%, #f0fff8 100%);
+      padding: 80px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    body.dark-mode .about-hero {
+      background: linear-gradient(135deg, #0d1528 0%, #0d1e1a 100%);
+    }
+    .about-hero .tag-line {
+      display: inline-block;
+      background: rgba(0,123,255,0.12);
+      color: #007bff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .about-hero h1 {
+      font-size: 2.6rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 18px;
+      color: var(--text-color);
+    }
+    .about-hero h1 em { color: #007bff; font-style: italic; }
+    .about-hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .stat-card {
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--border-color, #eee);
+      border-radius: 14px;
+      padding: 20px 30px;
+      min-width: 160px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #007bff;
+      display: block;
+    }
+    .stat-card .label { font-size: 0.85rem; color: var(--text-muted); }
+
+    .mission-section { padding: 70px 0; }
+    .section-title { text-align: center; margin-bottom: 45px; }
+    .section-title h2 { font-size: 2rem; margin-bottom: 10px; }
+    .section-title p { color: var(--text-muted); max-width: 650px; margin: 0 auto; }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .mission-card {
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--border-color, #eee);
+      border-radius: 16px;
+      padding: 30px 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,123,255,0.12);
+      border-color: #007bff;
+    }
+    .mission-card .icon-wrap {
+      width: 64px; height: 64px;
+      background: rgba(0,123,255,0.1);
+      color: #007bff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 18px;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #007bff; color: #fff; padding: 14px 32px;
+      border-radius: 12px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,123,255,0.3); transition: all 0.3s ease;
+    }
+    .back-btn:hover { background: #0056d2; transform: translateY(-3px); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký dịch vụ" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <span class="tag-line">🏛️ BÁO CÁO ĐỀ TÀI TIỂU LUẬN</span>
+        <h1>Hệ Thống Chatbot Hỗ Trợ Khách Hàng Ngân Hàng</h1>
+        <p>
+          Ứng dụng trí tuệ nhân tạo nhận diện ý định (Intent Recognition) từ câu hỏi của khách hàng ngân hàng.
+          Sử dụng kỹ thuật trích xuất đặc trưng văn bản <strong>TF-IDF N-gram</strong> kết hợp mạng nơ-ron sâu <strong>MLP (Multilayer Perceptron)</strong>
+          và mô hình đối chứng <strong>Logistic Regression</strong> trên tập dữ liệu chuẩn quốc tế <strong>BANKING77</strong> (Hugging Face).
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="number">77</span>
+            <span class="label">Ý Định Tài Chính</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">13.083</span>
+            <span class="label">Mẫu Train Huấn Luyện</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">3.080</span>
+            <span class="label">Mẫu Test Đánh Giá</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">91.8%</span>
+            <span class="label">Độ Chính Xác (MLP Acc)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KIẾN TRÚC HỆ THỐNG -->
+    <section class="mission-section">
+      <div class="container">
+        <div class="section-title">
+          <span style="color: #007bff; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">CÁC THÀNH PHẦN CỐT LÕI</span>
+          <h2>Kiến Trúc Vận Hành Giữa AI Backend & Web Frontend</h2>
+          <p>Hệ thống được module hóa cao, đảm bảo tốc độ phản hồi tính bằng mili-giây và khả năng mở rộng dịch vụ ngân hàng linh hoạt.</p>
+        </div>
+
+        <div class="mission-grid">
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-brands fa-python"></i></div>
+            <h3>1. AI Backend Python (FastAPI)</h3>
+            <p>File <code>server_banking77.py</code> tải tập dữ liệu BANKING77, tiền xử lý chuẩn hóa câu chat, trích xuất ma trận TF-IDF (20.000 đặc trưng) và huấn luyện đồng thời mạng nơ-ron MLP cùng mô hình đối chứng Logistic Regression.</p>
+          </div>
+
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
+            <h3>2. Nhận Diện 77 Ý Định BANKING77</h3>
+            <p>Mô hình AI phân loại chính xác các nhu cầu: kích hoạt thẻ, khóa thẻ, quên mã PIN, nạp tiền thất bại, tra soát giao dịch tính tiền hai lần, tỷ giá ngoại tệ, rút tiền ATM và hạn mức chuyển khoản.</p>
+          </div>
+
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>3. Đánh Giá Độ Chính Xác (.ai-eval-box)</h3>
+            <p>Dưới mỗi câu trả lời của Phát Tài Bot, hệ thống hiển thị trực quan hộp đánh giá: nhãn ý định, độ tin cậy (Confidence) của MLP vs LR, chỉ số Accuracy và Macro F1-Score đã kiểm chứng.</p>
+          </div>
+
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-solid fa-book-bookmark"></i></div>
+            <h3>4. Cơ Sở Tri Thức Ngân Hàng (PHATTAI_KB)</h3>
+            <p>Ánh xạ 77 ý định sang câu trả lời chính xác, nghiệp vụ cụ thể của PHÁT TÀI BANK, bảo đảm khách hàng nhận được hướng dẫn chi tiết và số hotline hỗ trợ 1900-8888.</p>
+          </div>
+
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-solid fa-credit-card"></i></div>
+            <h3>5. Giỏ Đăng Ký Dịch Vụ & Data Server</h3>
+            <p>Cho phép người dùng lựa chọn mở thẻ Visa, thẻ Mastercard Gold, gói tiết kiệm 6.8% hoặc vay tín chấp online, lưu trữ trực tiếp vào <code>data/cart.json</code> qua REST API (không phụ thuộc LocalStorage).</p>
+          </div>
+
+          <div class="mission-card">
+            <div class="icon-wrap"><i class="fa-solid fa-list-check"></i></div>
+            <h3>6. Sổ Chi Tiêu & Nhắc Hạn CRUD (data/planner.json)</h3>
+            <p>Hỗ trợ đầy đủ Create - Read - Update - Delete cho các khoản hóa đơn định kỳ, tiền điện nước, bảo hiểm và tiền lãi vay, đồng bộ trực tiếp vào <code>data/planner.json</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐỘI NGŨ THỰC HIỆN -->
+    <section style="background: var(--card-bg, #fff); padding: 70px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-title">
+          <span style="color: #007bff; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">THÔNG TIN ĐỒ ÁN</span>
+          <h2>Đơn Vị Nghiên Cứu & Phát Triển</h2>
+          <p>Đồ án môn học Thiết kế & Lập trình Web Nâng Cao kết hợp Ứng dụng Trí tuệ Nhân tạo trong Tài chính - Ngân hàng.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; text-align: center;">
+          <div style="padding: 24px; border: 1px solid var(--border-color); border-radius: 16px;">
+            <div style="width: 70px; height: 70px; background: #007bff; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;"><i class="fa-solid fa-user-graduate"></i></div>
+            <h3>Nhóm Sinh Viên Thực Hiện</h3>
+            <p style="color: #007bff; font-weight: 600; font-size: 0.85rem;">Phát triển Fullstack & AI</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Trường Đại Học Gia Định (GDU)</p>
+          </div>
+
+          <div style="padding: 24px; border: 1px solid var(--border-color); border-radius: 16px;">
+            <div style="width: 70px; height: 70px; background: #00c896; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h3>Giảng Viên Hướng Dẫn</h3>
+            <p style="color: #00c896; font-weight: 600; font-size: 0.85rem;">Khoa Công Nghệ Thông Tin</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Bộ môn Thiết kế & Lập trình Web</p>
+          </div>
+
+          <div style="padding: 24px; border: 1px solid var(--border-color); border-radius: 16px;">
+            <div style="width: 70px; height: 70px; background: #ffb800; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;"><i class="fa-solid fa-database"></i></div>
+            <h3>Tập Dữ Liệu BANKING77</h3>
+            <p style="color: #e67e22; font-weight: 600; font-size: 0.85rem;">PolyAI / Hugging Face</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Chuẩn phân loại hội thoại ngân hàng</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="text-align: center; padding: 50px 0;">
+      <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Quay Lại Trang Chủ PHÁT TÀI BANK
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Báo cáo đồ án Chatbot Ngân hàng số trên tập dữ liệu BANKING77.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+

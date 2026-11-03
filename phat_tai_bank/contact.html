@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khám Phá - Sự Kiện & Chương Trình Đầu Tư | PHÁT TÀI BANK</title>
+  <meta name="description" content="Khám phá 7 sự kiện tài chính, chương trình ưu đãi và giải pháp đầu tư thịnh vượng tại PHÁT TÀI BANK.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .khampha-hero {
+      background: linear-gradient(135deg, #eef4ff 0%, #f0fff8 100%);
+      padding: 70px 0 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    body.dark-mode .khampha-hero {
+      background: linear-gradient(135deg, #0d1528 0%, #0d1e1a 100%);
+    }
+    .khampha-hero .tag {
+      display: inline-block;
+      background: rgba(0, 123, 255, 0.12);
+      color: #007bff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .khampha-hero h1 {
+      font-size: 2.6rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+      color: var(--text-color);
+    }
+    .khampha-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      padding: 60px 0 80px;
+    }
+    .program-card {
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-color, #dde3ef);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(0, 123, 255, 0.18);
+      border-color: #007bff;
+    }
+    .program-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .program-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .program-card:hover .program-img img {
+      transform: scale(1.08);
+    }
+    .program-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #007bff;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .program-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .program-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+      font-weight: 700;
+    }
+    .program-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .program-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px dashed var(--border-color, #eee);
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      color: #00c896;
+      font-weight: 600;
+    }
+    .btn-explore {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #007bff, #0056d2);
+      color: #ffffff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-explore:hover {
+      background: linear-gradient(135deg, #0056d2, #007bff);
+      box-shadow: 0 6px 18px rgba(0, 123, 255, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="menu-dropdown-wrapper">
+        <button class="menu-btn-header" id="menu-toggle" title="Mở menu danh mục" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </button>
+
+        <div class="menu-panel-dropdown" id="menu-panel-dropdown">
+          <div class="menu-panel-header">
+            <i class="fa-solid fa-compass"></i>
+            <span>Bảng Menu Chức Năng</span>
+          </div>
+          <div class="menu-panel-links">
+            <a href="bando.html" class="menu-panel-item"><i class="fa-solid fa-map-location-dot"></i> <span>0. Bản Đồ Chi Nhánh</span></a>
+            <a href="index.html" class="menu-panel-item"><i class="fa-solid fa-house"></i> <span>1. Trang Chủ E-Banking</span></a>
+            <a href="about.html" class="menu-panel-item"><i class="fa-solid fa-circle-info"></i> <span>2. Giới Thiệu Đồ Án AI</span></a>
+            <a href="contact.html" class="menu-panel-item"><i class="fa-solid fa-compass"></i> <span>3. Khám Phá</span></a>
+            <a href="index.html#planner" class="menu-panel-item"><i class="fa-solid fa-clipboard-list"></i> <span>4. Sổ Chi Tiêu & Hóa Đơn</span></a>
+            <a href="lienhe.html" class="menu-panel-item"><i class="fa-solid fa-envelope-open-text"></i> <span>5. Hotline & Tra Soát</span></a>
+            <a href="#" id="register-link-menu" class="menu-panel-item nav-item-register"><i class="fa-solid fa-user-plus"></i> <span>6. Đăng Ký E-Banking</span></a>
+            <a href="#" id="chatbot-link-menu" class="menu-panel-item" onclick="document.getElementById('chatbot-toggle')?.click(); this.closest('.menu-panel-dropdown').classList.remove('active'); return false;"><i class="fa-solid fa-robot"></i> <span>7. Phát Tài Bot (AI)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-building-columns" style="color: #007bff;"></i>
+        <span>PHÁT TÀI <em style="color: #00c896; font-style: normal;">BANK</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <div id="auth-header-container" class="auth-header-container"></div>
+        <button class="action-btn" id="theme-toggle" title="Chuyển chế độ sáng/tối" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="action-btn" id="cart-toggle" title="Xem giỏ đăng ký" aria-label="Open Cart">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO TITLE -->
+    <section class="khampha-hero">
+      <div class="container">
+        <span class="tag"><i class="fa-solid fa-compass"></i> KHÁM PHÁ TÀI CHÍNH</span>
+        <h1>7 Sự Kiện & Chương Trình Đầu Tư Vàng</h1>
+        <p>Tìm hiểu các cơ hội đầu tư sinh lời vượt trội, chứng chỉ quỹ mở, vàng kỹ thuật số và gói vay ưu đãi độc quyền tại PHÁT TÀI BANK.</p>
+      </div>
+    </section>
+
+    <!-- 7 PROGRAMS GRID -->
+    <section class="container">
+      <div class="programs-grid">
+
+        <!-- CHƯƠNG TRÌNH 1 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge">Chương Trình 1</span>
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=500" alt="Đầu tư chứng khoán">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Đầu Tư Cổ Phiếu & Quỹ Mở Thịnh Vượng</h3>
+              <p>Mở tài khoản giao dịch chứng khoán trực tuyến, khớp lệnh tức thì 0đ phí giao dịch 6 tháng đầu cùng quỹ mở lợi nhuận tới 15%/năm.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-arrow-trend-up"></i> Tỷ suất: 12 - 18%/năm</span>
+                <span>Vốn từ 100.000đ</span>
+              </div>
+              <a href="programs/dau-tu-chung-khoan.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 2 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge" style="background: #00c896;">Chương Trình 2</span>
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=500" alt="Tiết kiệm tài lộc">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Sự Kiện Tiết Kiệm 'Tài Lộc Đơm Hoa'</h3>
+              <p>Gửi tiết kiệm bậc thang online lãi suất vượt trội lên đến 7.2%/năm, nhận ngay mã quay thưởng trúng xe hơi VinFast VF8 và sổ tiết kiệm 100 triệu.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-gift"></i> Tổng giải: 5 Tỷ Đồng</span>
+                <span>Lãi tới 7.2%/năm</span>
+              </div>
+              <a href="programs/tiet-kiem-tai-loc.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 3 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge" style="background: #ffb800;">Chương Trình 3</span>
+            <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=500" alt="Đầu tư vàng">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Giao Dịch Vàng Kỹ Thuật Số (Gold e-Trading)</h3>
+              <p>Mua bán và tích lũy vàng miếng SJC 9999 trực tiếp trên ứng dụng E-Banking. Không lo cất giữ vật lý, thanh khoản 24/7 tức thì theo giá thị trường.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-coins"></i> Vàng chuẩn SJC 9999</span>
+                <span>Khớp lệnh 24/7</span>
+              </div>
+              <a href="programs/giao-dich-vang-so.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 4 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge">Chương Trình 4</span>
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=500" alt="Vay kinh doanh">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Gói Tín Dụng Khởi Nghiệp SME & Đổi Mới Sáng Tạo</h3>
+              <p>Gói hỗ trợ vốn ưu đãi 1.000 tỷ đồng dành cho doanh nghiệp vừa và nhỏ, lãi suất cố định 5.5%/năm trong 12 tháng đầu, ân hạn nợ gốc 1 năm.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-hand-holding-dollar"></i> Lãi suất từ: 5.5%/năm</span>
+                <span>Hạn mức tới 10 Tỷ</span>
+              </div>
+              <a href="programs/tin-dung-khoi-nghiep.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 5 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge" style="background: #9b59b6;">Chương Trình 5</span>
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=500" alt="Vay mua nhà">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Chương Trình 'An Cư Lạc Nghiệp - Mua Nhà 0 Đồng'</h3>
+              <p>Hỗ trợ vay mua nhà dài hạn lên tới 35 năm, tỷ lệ tài trợ tối đa 85% giá trị hợp đồng, tặng gói bảo hiểm cháy nổ nhà ở miễn phí 2 năm đầu.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-house-chimney"></i> Kỳ hạn tới 35 năm</span>
+                <span>Hỗ trợ 85% giá trị</span>
+              </div>
+              <a href="programs/an-cu-lac-nghiep.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 6 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge" style="background: #e67e22;">Chương Trình 6</span>
+            <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=500" alt="Bảo hiểm liên kết">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Bảo Hiểm Liên Kết Đầu Tư 'Gia Đình Thịnh Vượng'</h3>
+              <p>Giải pháp bảo vệ sức khỏe toàn diện trước 105 bệnh hiểm nghèo kết hợp quỹ đầu tư tài chính an toàn, bảo vệ trọn đời cho cả 3 thế hệ gia đình.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-shield-heart"></i> Bảo vệ đến 5 Tỷ</span>
+                <span>Tích lũy sinh lời</span>
+              </div>
+              <a href="programs/bao-hiem-thinh-vuong.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHƯƠNG TRÌNH 7 -->
+        <article class="program-card">
+          <div class="program-img">
+            <span class="program-badge" style="background: #e74c3c;">Chương Trình 7</span>
+            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&q=80&w=500" alt="Cashback thẻ">
+          </div>
+          <div class="program-body">
+            <div>
+              <h3>Lễ Hội Chi Tiêu Cashback 10% - Mastercard Gold</h3>
+              <p>Hoàn tiền 10% cho mọi chi tiêu du lịch, ẩm thực, mua sắm trực tuyến và vé máy bay. Miễn phí thường niên trọn đời khi đạt hạn mức chi tiêu năm.</p>
+            </div>
+            <div>
+              <div class="program-meta">
+                <span><i class="fa-solid fa-credit-card"></i> Hoàn tiền tới 10%</span>
+                <span>Miễn phí thường niên</span>
+              </div>
+              <a href="programs/cashback-mastercard.html" class="btn-explore">
+                <span>Xem Chi Tiết Chương Trình</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-bottom" style="padding: 30px 20px; text-align:center;">
+      <p>&copy; 2026 PHÁT TÀI BANK - Mục Khám Phá 7 Sự Kiện & Chương Trình Đầu Tư Tài Chính Hàng Đầu.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chatbot.js?v=4.0"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
